@@ -29,7 +29,9 @@ module "ACR" {
   acr_location   = "eastus"
   resource_group = "acr_resource_group"
   acr_sku        = "Basic"
-  tags           = "staging"
+  tags = {
+    env : "staging"
+  }
 }
 
 ```
