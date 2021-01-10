@@ -24,7 +24,7 @@ Usage
 
 ```hcl
 module "ACR" {
-  source         = "./modules/ACR"
+  source         = "git::https://github.com/OT-terraform-azure-modules/terraform-Azure-ACR.git"
   acr_name       = "TerraformACR"
   acr_location   = "eastus"
   resource_group = "acr_resource_group"
@@ -57,5 +57,19 @@ Output
 | Name            |                    Description                              |
 |-----------------|-------------------------------------------------------------|
 |acr_login_server |This variable will give details about the login server of ACR|
+
+## Related Projects
+
+Check out these related projects. 
+* [ACR Implementation](https://github.com/lakshayarora476/terraform-Azure-ACR-Setup)
+
+### Contributors
+
+|  [![Lakshay Arora][lakshay_avatar]][lakshay_homepage]<br/>[Lakshay Arora][lakshay_homepage] |
+|---|
+
+  [lakshay_homepage]: https://github.com/lakshayarora476
+  [lakshay_avatar]: https://avatars.githubusercontent.com/lakshayarora476
+
 
 
