@@ -1,7 +1,0 @@
-.terraform
-*.tfstate*
-terraform.tfstate
-terraform.tfvars
-*plan.out
-/examples/
-.tfplan
