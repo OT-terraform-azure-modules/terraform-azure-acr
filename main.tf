@@ -1,14 +1,6 @@
-provider "azurerm" {
-  features {}
-}
-
-data "azurerm_resource_group" "rg" {
-  name = var.RG_name
-}
-
 resource "azurerm_container_registry" "ContainerRegistry" {
   name                          = var.Registry_Name
-  resource_group_name           = data.azurerm_resource_group.rg.name
+  resource_group_name           = var.resource_group_name
   location                      = var.ACR_location
   sku                           = var.sku
   admin_enabled                 = var.admin

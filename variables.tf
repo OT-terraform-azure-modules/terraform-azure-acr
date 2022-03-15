@@ -10,6 +10,11 @@ variable "RG_name" {
   nullable    = false
 }
 
+variable "resource_group_name" {
+  type = string
+  description = "Resource Group Name"
+}
+
 variable "ACR_location" {
   type        = string
   description = "Location of Azure Container Registry"
