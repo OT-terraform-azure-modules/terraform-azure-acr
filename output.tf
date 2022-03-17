@@ -1,22 +1,22 @@
 
-output "ACR_id" {
+output "acr_id" {
   value       = azurerm_container_registry.ContainerRegistry.id
   description = "ID of the Azure Container Registry"
 }
 
-output "ACR_Login" {
+output "acr_login" {
   value       = azurerm_container_registry.ContainerRegistry.login_server
   description = "URL that can be used to log into the Azure Container Registry"
 }
 
 output "container_registry_admin_username" {
   description = "(Only if Admin is enabled) The Username associated with the Container Registry Admin account"
-  value       = var.admin == true ? azurerm_container_registry.ContainerRegistry.admin_username : null
+  value       = var.admin_enabled == true ? azurerm_container_registry.ContainerRegistry.admin_username : null
 }
 
 output "container_registry_admin_password" {
   description = "(Only if Admin is enabled) The Username associated with the Container Registry Admin account"
-  value       = var.admin == true ? azurerm_container_registry.ContainerRegistry.admin_password : null
+  value       = var.admin_enabled == true ? azurerm_container_registry.ContainerRegistry.admin_password : null
   sensitive   = true
 }
 
