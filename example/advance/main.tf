@@ -19,7 +19,7 @@ data "azurerm_key_vault_key" "keyvalue" {
 
 module "acr" {
   source                  = "../../"
-  container_registry_name = "indusindxmpregistry"
+  container_registry_name = "examplexmplregistry"
   resource_group_name     = "example-resourcegroup"
   acr_location            = "eastus"
   sku                     = "Premium"
