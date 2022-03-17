@@ -1,11 +1,14 @@
+provider "azurerm" {
+  features {}
+}
+
 resource "azurerm_container_registry" "ContainerRegistry" {
-  name                          = var.Registry_Name
+  name                          = var.container_registry_name
   resource_group_name           = var.resource_group_name
-  location                      = var.ACR_location
+  location                      = var.acr_location
   sku                           = var.sku
-  admin_enabled                 = var.admin
-  public_network_access_enabled = var.Publicaccess
-  quarantine_policy_enabled     = var.quarantine_policy_enabled
+  admin_enabled                 = var.admin_enabled
+  public_network_access_enabled = var.public_network_access
   zone_redundancy_enabled       = var.zone_redundancy_enabled
   tags                          = var.tag_map
 
@@ -27,19 +30,17 @@ resource "azurerm_container_registry" "ContainerRegistry" {
   }
 
   dynamic "trust_policy" {
-    for_each = var.trust_policy != null && var.sku == "Premium" ? ["enabled"] : []
+    for_each = var.trust_policy != null && var.sku == "Premium" && var.encryption != "true" ? ["enabled"] : []
     content {
       enabled = var.trust_policy
     }
   }
-
   identity {
     type         = var.identity
-    identity_ids = var.identity_client_id
+    identity_ids = var.identity == "UserAssigned" ? [var.identity_id] : []
   }
-
   dynamic "encryption" {
-    for_each = var.encryption != null ? [var.encryption] : []
+    for_each = var.encryption != null && var.sku == "Premium" ? [var.encryption] : []
     content {
       enabled            = var.encryption
       key_vault_key_id   = var.key_vault_key_id
@@ -47,10 +48,10 @@ resource "azurerm_container_registry" "ContainerRegistry" {
     }
   }
 }
-
 resource "azurerm_management_lock" "primary_lock" {
-  name       = "${var.Registry_Name}-lock"
+  count      = var.lock_level_value == "" ? 0 : 1
+  name       = "${var.container_registry_name}-lock"
   scope      = azurerm_container_registry.ContainerRegistry.id
   lock_level = var.lock_level_value
-  notes      = "Azure Container Registry '${var.Registry_Name}' is locked with '${var.lock_level_value}' level"
+  notes      = "Azure Container Registry '${var.container_registry_name}' is locked with '${var.container_registry_name}' level"
 }
