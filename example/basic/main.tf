@@ -11,7 +11,7 @@ module "res_group" {
 }
 
 module "acr" {
-  source                  = "../"
+  source                  = "../../"
   container_registry_name = "examplexmpregistry"
   resource_group_name     = module.res_group.resource_group_name
   acr_location            = "east us"
