@@ -30,7 +30,7 @@ module "res_group" {
 }
 
 module "acr" {
-  source                  = "git::https://github.com/OT-terraform-azure-modules/ACR.git"
+  source                  = "git::https://github.com/OT-terraform-azure-modules/azure_container_registry.git"
   container_registry_name = ""
   resource_group_name     = module.res_group.resource_group_name
   acr_location            = ""
