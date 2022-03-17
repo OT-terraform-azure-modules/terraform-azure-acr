@@ -50,12 +50,6 @@ module "ACR" {
 
 ```
 
-Tags
-----
-* Tags are assigned to resources with name variable as prefix.
-* Additional tags can be assigned by tags variables as defined above.
-* Testing this.
-
 Resources
 ------
 | Name | Type |
