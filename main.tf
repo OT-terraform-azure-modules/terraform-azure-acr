@@ -1,6 +1,3 @@
-provider "azurerm" {
-  features {}
-}
 ######################## Azure Container Registry ##############################
 
 resource "azurerm_container_registry" "ContainerRegistry" {
