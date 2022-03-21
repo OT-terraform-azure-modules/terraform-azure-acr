@@ -29,24 +29,23 @@ module "res_group" {
   }
 }
 
-module "acr" {
-  source                  = "git::https://github.com/OT-terraform-azure-modules/azure_container_registry.git"
-  container_registry_name = ""
-  resource_group_name     = module.res_group.resource_group_name
-  acr_location            = ""
-  sku                     = ""
-  admin_enabled           = ""
-  public_network_access   = ""
-  trust_policy            = ""
-  zone_redundancy_enabled = ""
-  georeplications         = []
-  retention               = ""
-  identity                = ""
-  identity_id             = ""
-  encryption              = ""
-  key_vault_key_id        = ""
-  identity_client_id      = ""
-  lock_level_value        = ""
+module "ACR" {
+  source                  = "git::https://github.com/OT-terraform-azure-modules/ACR.git
+  Registry_Name = "_"
+  RG_name       = "_"
+  ACR_location  = "_"
+  sku           = "_"
+  admin                     = "_"
+  quarantine_policy_enabled = "_"
+  Publicaccess              = "_"
+  trust_policy              = "_"
+  zone_redundancy_enabled   = "_"
+  georeplications    = ["_", "_"]
+  identity           = "_"
+  encryption         = "_"
+  key_vault_key_id   = "_"
+  identity_client_id = "_"
+  lock_level_value   = "_"
 }
 
 ```
@@ -69,16 +68,25 @@ Inputs
 | sku | Map to define the sku of the Azure Container Registry: 'Basic', 'Standard', or 'Premium' | `string` | Basic  | no |
 | admin_enabled | To Enable Admin | `bool` | false | no |
 | public_network_access | To enable Public Access in Connectivity Configurations | `bool` | true | no |
+| zone_redundancy_enabled | To enable Zone Redundancy (Only Available for Premium) | `bool` | false | no |
+| data_endpoint_enabled | To enable Data Endpoint (Only Available for Premium) | `bool` | false | no |
+| anonymous_pull_enabled | To enable Anonymous Pull Access (Only Available for Premium) | `bool` | false | no |
+| quarantine_policy_enabled | To enable quarantine policy (Only Available for Premium) | `bool` | false | no |
+| network_rule_bypass_option | Whether to allow trusted Azure services to access a network restricted Container Registry? Possible values are "None" and "AzureServices" | `string` | AzureServices | no |
 | retention | The number of days to retain an untagged manifest after which it gets purged. (Only Available for Premium) | `map(object)` | null | no |
 | trust_policy | To enable Trust policy (Only Available for Premium) | `bool` | false | no |
 | georeplications | A list of Azure locations where the container registry should be geo-replicated. Location is to be added here (Only Available for Premium) | `list(string)` |  | no |
-| zone_redundancy_enabled | To enable Zone Redundancy (Only Available for Premium) | `bool` | false | no |
+
 | identity | Please mention the type of identity - 'UserAssigned' or 'SystemAssigned' | `string` | SystemAssigned | no |
 | encryption | Please mention True (to enable) or False (to disable) Encryption | `bool` | null | no |
 | key_vault_key_id | Please mention the Key Vault Key ID for Encryption | `string` | null | no |
 | identity_client_id | Please mention the Managed Identity Client ID for Encryption | `string` | null | no |
-| lock_level_value | Please mention the level of lock that is to be applied in Azure Container Registry | `string` | null | no |
 | identity_id | Please mention the Managed Identity ID | `string` | null | no |
+| enable_private_endpoint | Manages a Private Endpoint to Azure Container Registry | `bool` | false | no |
+| existing_private_dns_zone | Name of the existing private DNS zone | `any` | null | no |
+| virtual_network_id | The ID of the virtual network (virtual network Region and ACR location must be same) | `string` | null | no |
+| subnet_id | The ID of the Subnet (Subnet Region and ACR location must be same) | `string` | null | no |
+| lock_level_value | Please mention the level of lock that is to be applied in Azure Container Registry | `string` | null | no |
 | tag_map | Please mention the tags here | `map(string)` |  | no |
 
 NOTE
