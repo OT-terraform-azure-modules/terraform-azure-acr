@@ -9,8 +9,8 @@ data "azurerm_virtual_network" "virtual_network" {
 
 data "azurerm_subnet" "subnet_acr" {
   name                 = "example-subnet-name"   #Enter Subnet Name present in Virtual Network
-  resource_group_name  = "example-subnet"        #Enter Resource Group Name
-  virtual_network_name = "example-resourcegroup" #Enter Virtual Network Name
+  resource_group_name  = "example-resourcegroup"        #Enter Resource Group Name
+  virtual_network_name = "example-vnet" #Enter Virtual Network Name
 }
 
 data "azurerm_user_assigned_identity" "userassignedid" {
