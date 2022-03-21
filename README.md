@@ -30,22 +30,34 @@ module "res_group" {
 }
 
 module "ACR" {
-  source                  = "git::https://github.com/OT-terraform-azure-modules/ACR.git
-  Registry_Name = "_"
-  RG_name       = "_"
-  ACR_location  = "_"
-  sku           = "_"
-  admin                     = "_"
-  quarantine_policy_enabled = "_"
-  Publicaccess              = "_"
-  trust_policy              = "_"
-  zone_redundancy_enabled   = "_"
-  georeplications    = ["_", "_"]
-  identity           = "_"
-  encryption         = "_"
-  key_vault_key_id   = "_"
-  identity_client_id = "_"
-  lock_level_value   = "_"
+  source                     = "git::https://github.com/OT-terraform-azure-modules/ACR.git
+  container_registry_name    = "_"
+  resource_group_name        = "_"
+  acr_location               = "_"
+  sku                        = "_"
+  admin_enabled              = "_"
+  public_network_access      = "_"
+  trust_policy               = "_"
+  zone_redundancy_enabled    = "_"
+  georeplications            = ["_", "_"]
+  identity                   = "_"
+  identity_id                = "_"
+  retention                  = "_"
+  encryption                 = "_"
+  key_vault_key_id           = "_"
+  identity_client_id         = "_"
+  quarantine_policy_enabled  = "_"
+  anonymous_pull_enabled     = "_"
+  data_endpoint_enabled      = "_"
+  enable_private_endpoint    = "_"
+  existing_private_dns_zone  = "_"
+  virtual_network_id         = "_"
+  subnet_id                  = "_"
+  network_rule_bypass_option = "_"
+  lock_level_value           = "_"
+  tag_map                    = {
+      env = "_"
+    }
 }
 
 ```
