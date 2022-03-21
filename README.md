@@ -76,7 +76,6 @@ Inputs
 | retention | The number of days to retain an untagged manifest after which it gets purged. (Only Available for Premium) | `map(object)` | null | no |
 | trust_policy | To enable Trust policy (Only Available for Premium) | `bool` | false | no |
 | georeplications | A list of Azure locations where the container registry should be geo-replicated. Location is to be added here (Only Available for Premium) | `list(string)` |  | no |
-
 | identity | Please mention the type of identity - 'UserAssigned' or 'SystemAssigned' | `string` | SystemAssigned | no |
 | encryption | Please mention True (to enable) or False (to disable) Encryption | `bool` | null | no |
 | key_vault_key_id | Please mention the Key Vault Key ID for Encryption | `string` | null | no |
