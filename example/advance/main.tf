@@ -47,7 +47,7 @@ module "acr" {
   identity_client_id         = data.azurerm_user_assigned_identity.userassignedid.client_id
   data_endpoint_enabled      = true
   anonymous_pull_enabled     = true
-  quarantine_policy_enabled  = true
+  quarantine_policy_enabled  = false
   network_rule_bypass_option = "AzureServices"
   enable_private_endpoint    = true
   existing_private_dns_zone  = null
