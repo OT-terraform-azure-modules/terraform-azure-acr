@@ -101,3 +101,4 @@ resource "azurerm_management_lock" "primary_lock" {
   lock_level = var.lock_level_value
   notes      = "Azure Container Registry '${var.container_registry_name}' is locked with '${var.container_registry_name}' level"
 }
+
