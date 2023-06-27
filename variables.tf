@@ -31,7 +31,7 @@ variable "admin_enabled" {
   type        = bool
   description = "Admin Enabled  : True or False "
   validation {
-    condition     = contains(["true", "false"], var.admin_enabled)
+    condition     = contains([true, false], var.admin_enabled)
     error_message = "Argument 'admin' must one of 'True' or 'False'."
   }
   default = false
@@ -40,7 +40,7 @@ variable "public_network_access" {
   type        = bool
   description = "Public network access: true or false"
   validation {
-    condition     = contains(["true", "false"], var.public_network_access)
+    condition     = contains([true, false], var.public_network_access)
     error_message = "Argument 'Publicaccess' must one of 'True' or 'False'."
   }
   default = true
@@ -50,7 +50,7 @@ variable "anonymous_pull_enabled" {
   type        = bool
   description = "Anonymous Pull access: true or false"
   validation {
-    condition     = contains(["true", "false"], var.anonymous_pull_enabled)
+    condition     = contains([true, false], var.anonymous_pull_enabled)
     error_message = "Argument 'anonymous pull access' must one of 'True' or 'False'."
   }
   default = false
@@ -60,7 +60,7 @@ variable "data_endpoint_enabled" {
   type        = bool
   description = "Want to enable Data Endpoint ? : true or false"
   validation {
-    condition     = contains(["true", "false"], var.data_endpoint_enabled)
+    condition     = contains([true, false], var.data_endpoint_enabled)
     error_message = "Argument 'Data Endpoint Enabled' must one of 'True' or 'False'."
   }
   default = false
@@ -85,7 +85,7 @@ variable "trust_policy" {
   type        = bool
   description = "Trust Policy : True(Enable) or False(Disable)"
   validation {
-    condition     = contains(["true", "false"], var.trust_policy)
+    condition     = contains([true, false], var.trust_policy)
     error_message = "Argument 'Trust Policy' must one of 'True' or 'False'."
   }
   default = false
